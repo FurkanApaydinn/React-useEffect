@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import React,{useState,useEffect} from "react"
 import './App.css';
+// import ArttırAzalt from './function'
 
 function App() {
+  
+ 
+  
+  // const [count, setCount] = useState(0)
+  // useEffect(() => {
+  //   document.title=`You clicked ${count} times`
+  // },[count])
+  const [timer, setTimer] = useState(60)
+  useEffect(() => {
+    if (timer !== 0) {
+      const interval = setInterval(() => {
+      setTimer(timer - 1)
+      }, 1000);
+      return()=>clearInterval(interval)
+    }
+    
+    
+  })
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{height:"250px",width:"250px",backgroundColor:"#CBEDD5",borderRadius:"50%",color:"black",fontSize:"60px",margin:"10px auto",lineHeight:"250px",fontWeight:"bold"}}>{timer}
+      
+      </div>
+      
+      
+      {/* <p> You clicked {count} times</p>
+      <button onClick={()=> setCount(count+1)}>Click me</button>
+      <ArttırAzalt/> */}
     </div>
   );
 }
